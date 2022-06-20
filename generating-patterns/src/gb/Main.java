@@ -3,6 +3,8 @@ package gb;
 import gb.builder.ClaimBuilder;
 import gb.builder.ServiceBuilder;
 import gb.builder.ServiceGroupBuilder;
+import gb.decorator.ClaimFinderFilterServiceImpl;
+import gb.decorator.ClaimFinderServiceImpl;
 import gb.domain.Claim;
 import gb.domain.Service;
 import gb.domain.ServiceGroup;
@@ -10,6 +12,7 @@ import gb.domain.ServiceGroup;
 public class Main {
 
     public static void main(String[] args) {
+
         ServiceGroup serviceGroup = new ServiceGroupBuilder()
                 .withId(1L)
                 .withName("Прием деларации 3-НДФЛ")
@@ -27,5 +30,8 @@ public class Main {
                 .build();
 
         System.out.println(claim.toString());
+
+        new ClaimFinderFilterServiceImpl(new ClaimFinderServiceImpl()).findWithFilter(2L)
+                .forEach(it -> System.out.println(it.toString()));
     }
 }

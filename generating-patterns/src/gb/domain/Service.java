@@ -20,6 +20,18 @@ public class Service {
         this.group = group;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ServiceGroup getGroup() {
+        return group;
+    }
+
     @Override
     public String toString() {
         return "Service{" +

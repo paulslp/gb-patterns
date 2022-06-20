@@ -21,6 +21,18 @@ public class Claim {
         this.service = service;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public Long getCurrentDayNumber() {
+        return currentDayNumber;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
     @Override
     public String toString() {
         return "Claim{" +
